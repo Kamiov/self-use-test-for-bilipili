@@ -8,6 +8,8 @@
 // @match        https://t.bilibili.com/?spm_id_from=*
 // @match        https://t.bilibili.com/?tab=*
 // @match        https://t.bilibili.com/
+// @match        https://t.bilibili.com/*
+
 
 // @match        https://space.bilibili.com/*
 
@@ -19,24 +21,28 @@
 
 /* global $ */
 
-dianzan();
-function dianzan() {
+/* 个人空间点赞*/
+kongjian();
+function kongjian() {
     $(".custom-like-icon.zan").filter(
         function() {
             return( this.className.split(/\s+/).length == 2 );
         }
     ).first().trigger('click');
-    setTimeout(dianzan, 1000);//点赞间隔时间，以毫秒为单位
+    setTimeout(kongjian, 1000);//点赞间隔时间，以毫秒为单位
 }
-//konjian();
-function konjian() {
-    $(".single-button").filter(
+
+/* 动态全点赞*/
+dongtai();
+function dongtai() {
+    $(".bili-dyn-action.like").filter(
         function() {
             return( this.className.split(/\s+/).length == 2 );
         }
     ).first().trigger('click');
-    setTimeout(dianzan, 1000);//点赞间隔时间，以毫秒为单位
+    setTimeout(dongtai, 1000);//点赞间隔时间，以毫秒为单位
 }
+
 shuaxin();
 function shuaxin() {
     let time=30000;//刷新界面间隔时间，以毫秒为单位
